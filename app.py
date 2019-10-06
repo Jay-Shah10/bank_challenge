@@ -13,7 +13,6 @@ api = Api(app)
 class User(Resource):
     def get(self, user_id):
         user = synapse.get_user(user_id=user_id)
-        print(user)
         return user
     
     def post(self, user_id=None):
