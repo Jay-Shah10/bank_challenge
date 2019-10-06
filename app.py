@@ -22,6 +22,7 @@ api = Api(app)
 
 
 class User(Resource):
+    
     def get(self, user_id):
         """ Get a specific user.""" 
         user = CLIENT.get_user(user_id=user_id)
