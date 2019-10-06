@@ -20,7 +20,7 @@ def get_users():
 def get_user(user_id):
     user = f"{dev_url}/users/{user_id}"
     try: 
-        response = requests.get(url=user, headers=client_headers, verfiy=False)
+        response = requests.get(url=user, headers=client_headers, verify=False)
         return response.json()  
     except Exception as exc:
         return exc

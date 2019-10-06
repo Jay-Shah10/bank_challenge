@@ -18,7 +18,7 @@ dev_url = 'https://uat-api.synapsefi.com/v3.1/'
 
 
 def get_users():
-    all_users = f'{dev_url}/users'
+    all_users = f'{dev_url}/users/5d98116892571b46e3501246'
     response = requests.get(url=all_users,headers=client_headers,verify=False)
     print(json.dumps(response.json(), indent=2))
 

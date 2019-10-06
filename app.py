@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import jsonify
+from flask import request
 from flask_restful import Resource, Api
 import configs
 import json
@@ -8,18 +9,19 @@ from client import synapse
 app = Flask(__name__)
 api = Api(app)
 
-# CLIENT = Client(client_id=configs.CLIENT_ID,
-#                 client_secret=configs.CLIENT_SECRET,
-#                 fingerprint=configs.FINGERPRINT,
-#                 ip_address=configs.IP_ADDRESS,
-#                 devmode=True
-# )
 
+class User(Resource):
+    def get(self, user_id):
+        user = synapse.get_user(user_id=user_id)
+        print(user)
+        return user
+    
+    def post(self, user_id=None):
+        user = synapse.create_user(payload=request.get_json())
+        # update mongodb
+        return user
 
-@app.route('/bank/api/dev/users', methods=['GET', 'POST'])
-def get_all_users():
-    users = synapse.get_users()
-    return users
+api.add_resource(User,'/bank/api/dev/users/<string:user_id>')
     
 
 if __name__ == "__main__":
