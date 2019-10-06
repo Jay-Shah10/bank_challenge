@@ -1,0 +1,5 @@
+
+CLIENT_ID = "client_id_E970xWTrqfmdJDpSNLiUBZ4sCQIHn1uc20vFyozK"
+CLIENT_SECRET = "client_secret_HXucUspNq1h03t4QTy0GMxZov8k2EV95BmCKALgd"
+FINGERPRINT = "5087b7df81dde5a1dddbd397ea5d9f03"
+IP_ADDRESS = "127.0.0.1"
