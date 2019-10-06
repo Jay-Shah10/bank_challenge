@@ -1,13 +1,25 @@
 import configs
-# from synapsepy import Client, User
+from synapsepy import Client, User
 import json
 import requests
-# CLIENT = Client(client_id=configs.CLIENT_ID,
-#                 client_secret=configs.CLIENT_SECRET,
-#                 fingerprint=configs.FINGERPRINT,
-#                 ip_address=configs.IP_ADDRESS,
-#                 devmode=True
-# )
+CLIENT = Client(client_id=configs.CLIENT_ID,
+                client_secret=configs.CLIENT_SECRET,
+                fingerprint=configs.FINGERPRINT,
+                ip_address=configs.IP_ADDRESS,
+                devmode=True
+)
+
+
+def testing():
+    user_id = '5d98116892571b46e3501246'
+    user = CLIENT.get_all_users(page=4)
+    print(user.__dict__)
+    # user = CLIENT.get_user(user_id=user_id)
+    # account = user.get_all_nodes(page=4)
+    # print(account.__dict__)
+    
+
+
 
 client_headers = {
     'X-SP-USER-IP': configs.IP_ADDRESS,
@@ -48,4 +60,4 @@ def create_account():
 
 
 if __name__ == "__main__":
-    create_account()
+    testing()
