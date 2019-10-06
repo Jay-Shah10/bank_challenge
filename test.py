@@ -27,15 +27,13 @@ def get_users():
 def create_account():
     user_headers = {
             'X-SP-USER-IP':configs.IP_ADDRESS ,
-            'X-SP-USER': f'{configs.OAUTH_TOKEN}|{configs.FINGERPRINT}',
-            'Content-Type': 'application/json'
+            'X-SP-USER': f'{configs.OAUTH_TOKEN}|{configs.FINGERPRINT}'
         }
     url = f'{dev_url}users/5d98116892571b46e3501246/nodes'
     payload = {
             "type":"Deposit-US",
             "info": {
-                "nickname": "My deposit Account",
-                "docment_id":"2a4a5957a3a62aaac1a0dd0edcae96ea2cdee688ec6337b20745eed8869e3ac8"
+                "nickname": "My deposit Account"
             }
         }
     try: 
