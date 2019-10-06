@@ -12,11 +12,9 @@ CLIENT = Client(client_id=configs.CLIENT_ID,
 
 def testing():
     user_id = '5d98116892571b46e3501246'
-    user = CLIENT.get_all_users(page=4)
-    print(user.__dict__)
-    # user = CLIENT.get_user(user_id=user_id)
-    # account = user.get_all_nodes(page=4)
-    # print(account.__dict__)
+    user = CLIENT.get_user(user_id=user_id)
+    nodes = user.get_all_nodes(page=4)
+    nodeid = nodes.__dict__['list_of_nodes'][0]['_id']
     
 
 
