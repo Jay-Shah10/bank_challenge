@@ -52,7 +52,7 @@ def update_user_status(user_id, body):
 def get_oauth(user_id, payload):
     res = get_user(user_id=id)
     res.json()['refresh_token']
-
+    
     oauth = f"{dev_url}/oauth/{user_id}"
     try:
         response = requests.post(url=oauth, 
@@ -62,3 +62,40 @@ def get_oauth(user_id, payload):
         return response.json()['oauth_key']
     except Exception as exc:
         return exc
+    
+class Node():
+    def __init__(self, *args, **kwargs):
+    
+        self.user_headers = {
+            'X-SP-USER-IP':configs.IP_ADDRESS ,
+            'X-SP-USER': f'{configs.OAUTH_TOKEN}|{configs.FINGERPRINT}',
+            'Content-Type': 'application/json'
+        }
+
+    def get_user_node(self, user_id):
+        node_url = f'{dev_url}/users/{user_id}/nodes'
+        try:
+            response = requests.get(url=node_url,
+                                    headers=self.user_headers, 
+                                    verify=False)
+            return response.json()
+        except Exception as exc:
+            return exc
+    
+    def create_deposit_node(self, user_id):
+        url = f'{dev_url}users/{user_id}/nodes'
+        payload = {
+            "type":"DEPOSIT-US",
+            "info": {
+                "nickname": "My deposit Account"
+            }
+        }
+        try: 
+            response = requests.post(url=url,
+                                    headers=self.user_headers, 
+                                    data=json.dumps(payload), 
+                                    verify=False)
+            return response.json()
+        except Exception as exc:
+            return exc
+
