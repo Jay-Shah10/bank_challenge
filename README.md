@@ -10,6 +10,9 @@ Python3
 MongoDB
 synapsepy
 pymongo
+client id 
+client secret
+synapse sandbox account.
 ```
 
 ## How to
@@ -61,6 +64,15 @@ synapsepy.errors.ObjectNotFound: Unable to locate subnet object with ID 59c9f77c
 ```
 
 Results directory contains results found on screen.
+
+
+## Resources
+* [Synapse API](https://docs.synapsefi.com/reference#api-initialization)
+* [Synapse getting started](https://docs.synapsefi.com/docs/getting-started)
+* [Flask API](https://flask-restful.readthedocs.io/en/latest/quickstart.html#)
+* [pymongo](https://api.mongodb.com/python/current/tutorial.html)
+ 
+
 
 ## Author
 * Jay Shah
