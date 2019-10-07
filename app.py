@@ -64,13 +64,13 @@ class User(Resource):
         return user.__dict__
 
 class Account(Resource):
-    def get(self, user_id):
+    def get(self, user_id, node_id=None):
 
         # n = synapse.Node()
         # node = n.get_user_node(user_id=user_id)
         user = CLIENT.get_user(user_id=user_id)
         nodes = user.get_all_nodes(page=4)
-        return nodes
+        return nodes.__dict__
     
     def post(self, user_id):
         """
@@ -97,7 +97,7 @@ class Account(Resource):
         post = db.posts
         post.insert_one(entry)
 
-        return account
+        return account.__dict__
 
     def patch(self, user_id):
         body = request.json()
@@ -109,16 +109,16 @@ class Account(Resource):
 
         node = user.update_node(node_id, body)
         # add mongodb query to update.
-        return node
+        return node.__dict__
 
     def delete(self, user_id, node_id):
         node_id = "5c8abccb4b7ba9102c674cdf"
         user = CLIENT.get_user(user_id)
         result = user.delete_node(node_id=node_id)
         # add mongodb query to delete.
-        return result
+        return result.__dict__
 
-class DebitCard():
+class DebitCard(Resource):
 
     def post(self, user_id, node_id):
         """Creating a debit card for a user.
@@ -182,10 +182,9 @@ class DebitCard():
         # add mongodb query to update.
         return updatedcard.__dict__
 
-class Transaction():
+class Transaction(Resource):
 
-    @app.route('/bank/api/dev/users/<string:user_id>/transaction', methods=['GET'])
-    def get(self, user_id):
+    def get(self, user_id, node_id=None, trans_id=None):
         """shows all transaction for a user."""
         user = CLIENT.get_user(user_id=user_id)
         trans = user.get_all_trans()
@@ -242,7 +241,7 @@ class Transaction():
         
         return trans.__dict__
 
-        def patch(self, user_id, node_id):
+    def patch(self, user_id, node_id):
             """
             Comment on a transcation.
             send in comment in json.
@@ -259,10 +258,9 @@ class Transaction():
             trans_id = '5c78268a279caa0067e486e2' # using this for example.
             node_id = "5c8abccb4b7ba9102a61010d" # using this as an example.
             comment = user.comment_trans(node_id=node_id, trans_id=trans_id, comment=comment)
-            return comment
+            return comment.__dict__
 
-        @app.route('/bank/api/dev/users/<string:user_id>/nodes/<string:node_id>/trans/<string:trans_id>', methods=["DELETE"])
-        def delete(self, user_id, node_id, trans_id):
+    def delete(self, user_id, node_id, trans_id):
             """
             Cancel a transaction.
             """
@@ -272,14 +270,14 @@ class Transaction():
 
             user = CLIENT.get_user(user_id=user_id)
             cancel = user.cancel_trans(node_id=nodeid, trans_id=transid)
-            return cancel
+            return cancel.__dict__
 
 
 
-api.add_resource(User,'/bank/api/dev/users/<string:user_id>')
+api.add_resource(User,'/bank/api/dev/users/<string:user_id>' )
 api.add_resource(Account, '/bank/api/dev/users/<string:user_id>/nodes/<string:node_id>')
-api.add_resource(DebitCard, 'bank/api/dev/users/<string:user_id>/nodes/<string:node_id>')
-api.add_resource(Transaction, '/bank/api/dev/users/<string:user_id>/nodes/<string:node_id>')
+api.add_resource(DebitCard, '/bank/api/dev/users/<string:user_id>/nodes/<string:node_id>/card')
+api.add_resource(Transaction, '/bank/api/dev/users/<string:user_id>/nodes/<string:node_id>/transaction/<string:trans_id>')
 
     
 
