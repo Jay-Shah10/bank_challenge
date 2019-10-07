@@ -1,0 +1,106 @@
+{
+    "_id": "5d98116892571b46e3501246",
+    "_links": {
+        "self": {
+            "href": "https://uat-api.synapsefi.com/v3.1/users/5d98116892571b46e3501246"
+        }
+    },
+    "client": {
+        "id": "5d969528a11dc001d0cd7c5e",
+        "name": "Jay Shah"
+    },
+    "documents": [
+        {
+            "entity_scope": "Arts & Entertainment",
+            "entity_type": "M",
+            "id": "2a4a5957a3a62aaac1a0dd0edcae96ea2cdee688ec6337b20745eed8869e3ac8",
+            "id_score": null,
+            "name": "test document name",
+            "permission_scope": "UNVERIFIED",
+            "physical_docs": [
+                {
+                    "document_type": "GOVT_ID",
+                    "id": "cec004c61c440f968f7e4d4f82caeb68ab022cc2ca43bf2d84ccac113b02bfbd",
+                    "last_updated": 1570247017840,
+                    "status": "SUBMITTED|VALID"
+                }
+            ],
+            "social_docs": [
+                {
+                    "document_type": "DATE",
+                    "id": "2b52edae636ca2fbe12ab1b08a344d381dabc3d2b92844cf7a8d8b6052b26d8e",
+                    "last_updated": 1570247017840,
+                    "status": "SUBMITTED"
+                },
+                {
+                    "document_type": "PHONE_NUMBER",
+                    "id": "fda60784d6375bc44edafaaeae149626c4c13dcb92e85a2a7a00eec2cdfd2b6f",
+                    "last_updated": 1570247017840,
+                    "status": "SUBMITTED|VALID"
+                },
+                {
+                    "document_type": "EMAIL",
+                    "id": "2c45158f6431ca874bbe82f63d5905567854dde4d8b81539944e5779e5eee741",
+                    "last_updated": 1570247017840,
+                    "status": "SUBMITTED|VALID"
+                },
+                {
+                    "document_type": "ADDRESS",
+                    "id": "c615c761d68c578a98fde8e73c490df405ff5d5e34fc11f029660d7e9743df21",
+                    "last_updated": 1570247017840,
+                    "status": "SUBMITTED"
+                },
+                {
+                    "document_type": "IP",
+                    "id": "28d9177b22c127d9a51d8903893864accf6e553ac326704a4c0d585eaad2516a",
+                    "last_updated": 1570247017840,
+                    "status": "SUBMITTED|VALID"
+                },
+                {
+                    "document_type": "FACEBOOK",
+                    "id": "8f314a6a53f36ee569455761e49a2a7fe790d251c5611c65255befdb303602b7",
+                    "last_updated": 1570247017840,
+                    "status": "SUBMITTED|VALID"
+                }
+            ],
+            "virtual_docs": [
+                {
+                    "document_type": "SSN",
+                    "id": "ee596c2896dddc19b76c07a184fe7d3cf5a04b8e94b9108190cac7890739017f",
+                    "last_updated": 1570247017840,
+                    "status": "SUBMITTED|VALID"
+                }
+            ],
+            "watchlists": "PENDING"
+        }
+    ],
+    "emails": [],
+    "extra": {
+        "cip_tag": 1,
+        "date_joined": 1570247012359,
+        "extra_security": false,
+        "is_business": false,
+        "is_trusted": false,
+        "last_updated": 1570247017742,
+        "public_note": null,
+        "supp_id": "122eddfgbeafrfvbbb"
+    },
+    "is_hidden": false,
+    "legal_names": [
+        "test document name"
+    ],
+    "logins": [
+        {
+            "email": "test@synapsepay.com",
+            "scope": "READ_AND_WRITE"
+        }
+    ],
+    "permission": "SEND-AND-RECEIVE",
+    "phone_numbers": [
+        "test@synapsepay.com",
+        "901.111.1111"
+    ],
+    "photos": [],
+    "refresh_token": "refresh_AREpYBfqk1c0iPZvj7HrVhgSl2Q4ds3CW6z0Xxo8",
+    "watchlists": "PENDING"
+}
