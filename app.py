@@ -7,7 +7,7 @@ from flask_restful import Resource, Api
 import pymongo
 from pymongo import MongoClient
 
-import configs
+from configs import configs
 from synapsepy import Client
 
 CLIENT = Client(client_id=configs.CLIENT_ID,
