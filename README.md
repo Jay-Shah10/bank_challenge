@@ -1,0 +1,67 @@
+# Bank
+
+## Summary
+This is a backend challenge for synapse using their API as a platform to create a bank.
+This was created using Flask framework to create API endpoints. The main bank app creates a user, view a user, update a user's info. It will also create a deposit account, view a user's account, and delete an account. 
+
+## Requirements
+```
+Python3
+MongoDB
+synapsepy
+pymongo
+```
+
+## How to
+You will need python 3.
+You will need to create a python virtual env. 
+```
+python3 -m venv venv
+source venv/bin/activate
+```
+
+pip install from requirements.txt
+```
+pip -r install requirements.txt
+```
+
+* app.py contains the main functionality. Also contains endpoints.
+* configs.py - contains creds/configurations.
+* client/synapse.py  - contains synapse specfic APIs.
+
+Activate the Python Virtual env and run app.py
+```
+source venv/bin/activate
+python app.py
+```
+This will run on you local machine. Click on the ```http://0.0.0.0:5000```.
+
+To view user: 
+append: ```/bank/api/dev/users/5d98116892571b46e3501246``` this user_id is a test id used for this challenge's purpose.
+
+To view Transactions/nodes.
+append: ```/bank/api/dev/users/5d98116892571b46e3501246/nodes/5d98116892571b46e3501246/transaction/None```.
+None is added since get() does not need a node_id.
+results should be: 
+```
+{
+    "page": 1,
+    "page_count": 0,
+    "limit": 20,
+    "trans_count": 0,
+    "list_of_trans": []
+}
+```
+
+To view Card: 
+append: ```/bank/api/dev/users/5d98116892571b46e3501246/nodes/5d98116892571b46e3501246/card```
+result: should be an error. did not create an example card.
+```
+synapsepy.errors.ObjectNotFound: Unable to locate subnet object with ID 59c9f77cd412960028b99d2b for node 5d98116892571b46e3501246 of user 5d98116892571b46e3501246
+```
+
+Results directory contains results found on screen.
+
+## Author
+* Jay Shah
+
