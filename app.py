@@ -51,7 +51,7 @@ class User(Resource):
         # adding user to local database.
         mongodb_client = MongoClient('localhost', 27107)
         db = mongodb_client['bank']
-        user_collection = db['user_collection']
+        
         entry = {
             'user_id': payload['_id'], 
             'document_id': payload['documents'][0]['id'],
@@ -59,8 +59,7 @@ class User(Resource):
             'refresh_token': payload['refresh_token']
         }
         # insert the entry into the database.
-        post = db.posts
-        post.insert_one(entry)
+        db['user_collection'].insert_one(entry)
         return user.__dict__
 
 class Account(Resource):
@@ -89,13 +88,12 @@ class Account(Resource):
         # Adding transaction to local mongodb.
         mongodb_client = MongoClient('localhost', 27107)
         db = mongodb_client['bank']
-        account_collection = db['account_collection']
+        
         entry = {
             'transaction_type': payload['type'],
             'information': payload['info']['nickname']
         }
-        post = db.posts
-        post.insert_one(entry)
+        db['account_collection'].insert_one(entry)
 
         return account.__dict__
 
@@ -139,13 +137,12 @@ class DebitCard(Resource):
 
         mongodb_client = MongoClient('localhost', 27107)
         db = mongodb_client['bank']
-        db['card_collection']
+        
         entry = {
             'name': payload['nickname'],
             'account': payload['account_class']
         }
-        post = db.posts
-        post.insert_one(entry)
+        db['card_collection'].insert_one(entry)
 
         return debitcard.__dict__
     
@@ -221,7 +218,7 @@ class Transaction(Resource):
 
         mongodb_client = MongoClient('localhost', 27107)
         db = mongodb_client['bank']
-        db['transactions_collection']
+        
         entry = {
             "to": {
                     "type": payload['to']['type'],
@@ -235,8 +232,7 @@ class Transaction(Resource):
                     "note": payload['extra']['note']
                 }
         }
-        post = db.posts
-        post.insert_one(entry)
+        db['transactions_collection'].insert_one(entry)
 
         
         return trans.__dict__
