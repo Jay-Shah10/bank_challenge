@@ -8,7 +8,6 @@ import pymongo
 from pymongo import MongoClient
 
 import configs
-from client import synapse
 from synapsepy import Client
 
 CLIENT = Client(client_id=configs.CLIENT_ID,
