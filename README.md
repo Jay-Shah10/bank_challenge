@@ -40,10 +40,10 @@ python app.py
 This will run on you local machine. Click on the ```http://0.0.0.0:5000```.
 
 To view user: 
-append: ```/bank/api/dev/users/5d98116892571b46e3501246``` this user_id is a test id used for this challenge's purpose.
+append: ```/bank/api/dev/users/<user_id>``` this user_id is a test id used for this challenge's purpose.
 
 To view Transactions/nodes.
-append: ```/bank/api/dev/users/5d98116892571b46e3501246/nodes/5d98116892571b46e3501246/transaction/None```.
+append: ```/bank/api/dev/users/<user_id>/nodes/<node_id>/transaction/None```.
 None is added since get() does not need a node_id.
 results should be: 
 ```
@@ -57,10 +57,10 @@ results should be:
 ```
 
 To view Card: 
-append: ```/bank/api/dev/users/5d98116892571b46e3501246/nodes/5d98116892571b46e3501246/card```
+append: ```/bank/api/dev/users/user_id/nodes/node_id/card```
 result: should be an error. did not create an example card.
 ```
-synapsepy.errors.ObjectNotFound: Unable to locate subnet object with ID 59c9f77cd412960028b99d2b for node 5d98116892571b46e3501246 of user 5d98116892571b46e3501246
+synapsepy.errors.ObjectNotFound: Unable to locate subnet object with ID <user_id> for node <node_id> of user <user_id>
 ```
 
 Results directory contains results found on screen.
